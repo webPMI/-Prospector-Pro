@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Web - {{NOMBRE}} | {{CATEGORIA}}</title>
+    <!-- Enlazado a styles globales (styles.css) -->
+    <link rel="stylesheet" href="/styles.css"> 
+    <style>
+        /* Estilos específicos para esta plantilla de sector */
+        :root {
+            --primary-color: #ff9800; /* Color naranja, típico de restaurantes/comida */
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER (Debe seguir la regla de diseño) -->
+<header class="main-header">
+    <!-- Contenido del Navbar Global aquí -->
+</header>
+
+<div class="container">
+    <section id="hero" style="background-color: #f4f4f9; padding: 60px;">
+        <h1>✨ Diseñando tu escaparate digital para {{NOMBRE}}</h1>
+        <p class="subtitle">Tu negocio en {{MUNICIPIO}} merece una web moderna y funcional.</p>
+    </section>
+
+    <section id="problem" style="padding: 40px; text-align: center;">
+        <h2>🛑 Tu estado digital actual: ¡Oportunidad de mejora!</h2>
+        <div class="card danger">
+            <h3>{{AUDIT_LABEL}}</h3>
+            <p>{{AUDIT_DETAILS}}</p>
+            <p>Tu puntuación de Lead es: <span style="font-size: 1.5em; color: var(--primary-color);">{{SCORE}}/100</span> (Tier: {{TIER}})</p>
+        </div>
+    </section>
+
+    <section id="solution" style="padding: 40px;">
+        <h2>🌐 Nuestra Solución IA: Demo Web Personalizada</h2>
+        <div class="tech-stack">
+            <!-- Aquí iría una descripción de las tecnologías -->
+        </div>
+        <h3>🚀 Lo que incluye esta demo</h3>
+        <ul>
+            <li>Diseño completamente **Responsive** (Móvil primero).</li>
+            <li>Secciones dedicadas a: Servicios, Contacto y Galería.</li>
+            <li>Optimización para SEO local en Google Maps.</li>
+        </ul>
+    </section>
+
+    <section id="contact" style="background-color: #eef;">
+        <h2>📞 Hablemos de tu Web</h2>
+        <p class="cta-text">¡Es hora de digitalizar tu presencia y captar más clientes!</p>
+        <div class="contact-info">
+            <p><strong>Teléfono:</strong> {{TELEFONO}}</p>
+            <p><strong>WhatsApp CTA:</strong> <a href="{{WHATSAPP_URL}}" target="_blank" style="color: var(--primary-color);">Hable por WhatsApp</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer estático -->
+    </footer>
+</div>
+</body>
+</html>

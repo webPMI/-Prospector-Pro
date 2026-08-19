@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de Webs IA — Prospector Pro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- UNIFIED TOP NAVIGATION HEADER -->
+    <header class="main-header">
+        <a href="/home" class="brand-title">
+            <div class="brand-logo-icon"><i class="fa-solid fa-robot"></i></div>
+            <div>
+                <h1>Prospector Pro</h1>
+                <div class="brand-subtitle">Plataforma de Demos Web con IA</div>
+            </div>
+        </a>
+
+        <nav class="nav-tabs">
+            <a href="/home" class="nav-tab">
+                <i class="fa-solid fa-house"></i> Inicio
+            </a>
+            <a href="/buscador" class="nav-tab">
+                <i class="fa-solid fa-magnifying-glass-location"></i> Buscador de Leads
+            </a>
+            <a href="/creador" class="nav-tab active">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Creador de Webs IA
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- Info Banner -->
+        <div class="info-banner-creador">
+            <b><i class="fa-solid fa-lightbulb" style="color: #fde047;"></i> Flujo del Creador:</b>
+            Selecciona un negocio auditado del buscador → el sistema <b>recolecta toda su información</b>
+            (fotos, reseñas, horario, redes, salud) → construye el <b>prompt correcto</b> con todos los datos →
+            genera una <b>demo web personalizada</b> lista para compartir por WhatsApp.
+        </div>
+
+        <!-- Layout -->
+        <div class="creador-layout">
+
+            <!-- Left: Lead Selection -->
+            <div class="panel">
+                <div class="panel-title"><i class="fa-solid fa-store"></i> Negocios Auditados Disponibles</div>
+                <div id="leadList" class="lead-list">
+                    <div class="empty-state">Cargando leads...</div>
+                </div>
+            </div>
+
+            <!-- Right: Actions & Result -->
+            <div class="result-panel">
+
+                <!-- LEAD INFO COMPONENT: Tabs con toda la info del negocio -->
+                <div class="panel" id="leadInfoPanel" style="display: none;">
+                    <div class="panel-title" style="color: #c084fc;">
+                        <i class="fa-solid fa-circle-info"></i> Información Detallada del Negocio
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="info-tabs" id="infoTabs">
+                        <button class="info-tab-btn active" data-tab="resumen"><i
+                                class="fa-solid fa-clipboard-list"></i> Resumen</button>
+                        <button class="info-tab-btn" data-tab="reviews"><i class="fa-solid fa-star"></i>
+                            Reseñas</button>
+                        <button class="info-tab-btn" data-tab="fotos"><i class="fa-solid fa-images"></i> Fotos</button>
+                        <button class="info-tab-btn" data-tab="contacto"><i class="fa-solid fa-phone"></i>
+                            Contacto</button>
+                        <button class="info-tab-btn" data-tab="web"><i class="fa-solid fa-globe"></i> Web</button>
+                    </div>
+
+                    <!-- Panel Resumen -->
+                    <div class="info-panel active" id="tab-resumen">
+                        <div class="info-grid" id="resumenContent">Selecciona un negocio para ver su resumen.</div>
+                    </div>
+
+                    <!-- Panel Reseñas -->
+                    <div class="info-panel" id="tab-reviews">
+                        <div id="reviewsContent" style="color: var(--text-muted); font-size: 0.85rem;">
+                            Selecciona un negocio para ver sus reseñas.
+                        </div>
+                    </div>
+
+                    <!-- Panel Fotos -->
+                    <div class="info-panel" id="tab-fotos">
+                        <div id="fotosContent" style="color: var(--text-muted); font-size: 0.85rem;">
+                            Selecciona un negocio para ver sus fotos.
+                        </div>
+                    </div>
+
+                    <!-- Panel Contacto -->
+                    <div class="info-panel" id="tab-contacto">
+                        <div class="info-grid" id="contactoInfo"></div>
+                    </div>
+
+                    <!-- Panel Web -->
+                    <div class="info-panel" id="tab-web">
+                        <div id="webInfo"></div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="panel">
+                    <div class="panel-title"><i class="fa-solid fa-bolt"></i> Acciones de Generación</div>
+
+                    <div id="selectedLeadInfo"
+                        style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-circle-info"></i> Selecciona un negocio de la lista para comenzar.
+                    </div>
+
+                    <div class="actions">
+                        <button id="btnBuildPrompt" class="btn btn-prompt" disabled>
+                            <i class="fa-solid fa-brain"></i> 1. Recolectar & Construir Prompt
+                        </button>
+                        <button id="btnGenerateDemo" class="btn btn-generate" disabled>
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> 2. Generar Demo Web IA
+                        </button>
+                    </div>
+
+                    <div id="loadingIndicator" style="margin-top: 1rem;"></div>
+                </div>
+
+                <!-- Data Collected Summary -->
+                <div class="panel">
+                    <div class="section-label"
+                        style="font-size: 0.88rem; font-weight: 700; color: #a5b4fc; margin-bottom: 0.5rem;"><i
+                            class="fa-solid fa-database"></i> Datos Recolectados</div>
+                    <div id="dataSummary" class="data-summary">
+                        <div style="color: var(--text-muted); font-size: 0.82rem;">Ningún dato recolectado aún.</div>
+                    </div>
+                </div>
+
+                <!-- AI Prompt Box -->
+                <div class="panel">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div class="section-label" style="font-size: 0.88rem; font-weight: 700; color: #a5b4fc;">
+                            <i class="fa-solid fa-code"></i> Prompt IA Construido
+                        </div>
+                        <button id="btnCopyPrompt" class="btn btn-secondary" style="padding: 0.35rem 0.85rem; font-size: 0.78rem; display: none;">
+                            <i class="fa-regular fa-copy"></i> Copiar Prompt
+                        </button>
+                    </div>
+                    <pre id="promptBox" class="prompt-box">// El prompt se mostrará aquí...</pre>
+                    <div id="promptCharCount" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem;"></div>
+                </div>
+
+                <!-- Demo Result & Live Device Preview -->
+                <div id="demoResult" class="demo-result">
+                    <div class="success-msg"><i class="fa-solid fa-circle-check"></i> ¡Demo Web IA generada con éxito!</div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Enlace público de visualización:</p>
+                    <div id="demoUrl" class="demo-url"></div>
+                    <div class="demo-buttons">
+                        <a id="btnOpenDemo" href="#" target="_blank" class="btn btn-demo-live">
+                            <i class="fa-solid fa-up-right-from-square"></i> Ver Demo en Pestaña Nueva
+                        </a>
+                        <a id="btnSendWA" href="#" target="_blank" class="btn btn-demo-wa">
+                            <i class="fa-brands fa-whatsapp"></i> Enviar al Cliente por WhatsApp
+                        </a>
+                    </div>
+
+                    <!-- Interactive Live Preview Frame with Device Switcher -->
+                    <div class="preview-container" style="margin-top: 1.5rem;">
+                        <div class="preview-header">
+                            <div class="device-switcher">
+                                <button class="device-btn active" data-device="mobile" title="Vista Móvil"><i class="fa-solid fa-mobile-screen"></i> Móvil</button>
+                                <button class="device-btn" data-device="tablet" title="Vista Tablet"><i class="fa-solid fa-tablet-screen-button"></i> Tablet</button>
+                                <button class="device-btn" data-device="desktop" title="Vista Escritorio"><i class="fa-solid fa-desktop"></i> Desktop</button>
+                            </div>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);"><i class="fa-solid fa-shield-halved"></i> Vista Previa Interactiva en Vivo</span>
+                        </div>
+                        <div class="iframe-wrapper mobile-view" id="iframeWrapper">
+                            <iframe id="demoIframe" src="about:blank" title="Vista Previa de la Demo Web"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox para ver fotos a tamaño completo -->
+    <div id="lightbox" class="lightbox-overlay">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Vista ampliada">
+    </div>
+
+    <script src="creador.js"></script>
+</body>
+
+</html>

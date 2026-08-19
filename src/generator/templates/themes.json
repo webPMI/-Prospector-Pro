@@ -1,0 +1,68 @@
+{
+  "restaurante": {
+    "heroTagline": "Sabor Auténtico y Experiencia Gastronómica Única",
+    "primaryColor": "#eab308",
+    "accentColor": "#ef4444",
+    "bgDark": "#0f172a",
+    "features": [
+      { "title": "📖 Carta Digital Móvil", "desc": "Menú interactivo accesible en 1-clic sin descargar pesados archivos PDF." },
+      { "title": "📅 Reservas Inmediatas", "desc": "Tus clientes reservan mesa directamente por WhatsApp sin comisiones." },
+      { "title": "🌟 Platos Estrella", "desc": "Galería de imágenes de alta resolución de tus especialidades." }
+    ]
+  },
+  "bar": {
+    "heroTagline": "El Mejor Ambiente, Tapas y Cócteles de la Zona",
+    "primaryColor": "#f59e0b",
+    "accentColor": "#8b5cf6",
+    "bgDark": "#0f172a",
+    "features": [
+      { "title": "🍹 Carta de Cócteles y Tapas", "desc": "Presentación moderna de bebidas, sugerencias y promociones diarias." },
+      { "title": "⏰ Horarios y Eventos", "desc": "Información clara sobre horas de apertura, música en vivo y partidos." },
+      { "title": "📍 Cómo Llegar", "desc": "Ubicación en 1-clic conectada directamente a Google Maps y GPS." }
+    ]
+  },
+  "servicio": {
+    "heroTagline": "Mantenimiento, Reparaciones y Servicios de Confianza",
+    "primaryColor": "#38bdf8",
+    "accentColor": "#f59e0b",
+    "bgDark": "#0b1329",
+    "features": [
+      { "title": "🛠️ Solicitud de Cita Previa", "desc": "Agiliza la atención directamente por WhatsApp sin esperas." },
+      { "title": "🔍 Servicios Profesionales", "desc": "Diagnóstico especializado, garantía de trabajo y atención personalizada." },
+      { "title": "⏱️ Presupuesto Rápido", "desc": "Envío de consultas y presupuestos en 1-clic." }
+    ]
+  },
+  "salud": {
+    "heroTagline": "Estilo, Cuidado Personal y Tratamientos Exclusivos",
+    "primaryColor": "#ec4899",
+    "accentColor": "#a855f7",
+    "bgDark": "#111827",
+    "features": [
+      { "title": "✂️ Reserva de Cita", "desc": "Reserva tu hora de atención de forma instantánea por WhatsApp." },
+      { "title": "💇‍♀️ Catálogo de Trabajos", "desc": "Galería con los mejores tratamientos y resultados." },
+      { "title": "💆 Transparencia de Servicios", "desc": "Información clara de servicios para dar la máxima confianza a nuevos clientes." }
+    ]
+  },
+  "tienda": {
+    "heroTagline": "Descubre Nuestros Productos y Servicios",
+    "primaryColor": "#10b981",
+    "accentColor": "#f59e0b",
+    "bgDark": "#0f172a",
+    "features": [
+      { "title": "📋 Catálogo de Productos", "desc": "Explora nuestro catálogo completo en línea." },
+      { "title": "📍 Ubicación Exacta", "desc": "Fácil localización con mapa interactivo y dirección clara." },
+      { "title": "⭐ Opiniones de Clientes", "desc": "Reseñas destacadas que respaldan la calidad de nuestros productos." }
+    ]
+  },
+  "generica": {
+    "heroTagline": "Calidad, Atención Personalizada y Profesionalidad",
+    "primaryColor": "#38bdf8",
+    "accentColor": "#10b981",
+    "bgDark": "#0f172a",
+    "features": [
+      { "title": "📞 Contacto Directo", "desc": "Canal directo con tus clientes vía teléfono y WhatsApp sin intermediarios." },
+      { "title": "📍 Ubicación Exacta", "desc": "Fácil localización con mapa interactivo y dirección clara." },
+      { "title": "⭐ Garantía de Servicio", "desc": "Reseñas destacadas de clientes satisfechos respaldando tu negocio." }
+    ]
+  }
+}

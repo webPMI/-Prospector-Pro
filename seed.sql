@@ -1,0 +1,8 @@
+-- Initial Prospects Seed SQL for Cloudflare D1
+
+INSERT OR REPLACE INTO prospects (id, name, category, phone, email, city, address, website, status, audit_status, audit_label, score, tier, whatsapp, google_maps, lat, lon) VALUES
+('s_estiu_bei_maria_canyamel', 's''Estiu (Bei Maria)', 'Servicio / Hostelería (restaurant)', '+34 971841352', 'No disponible', 'Canyamel', 'Via de les Coves 37', '', 'pendiente', 'NO_WEBSITE', '🔴 Sin Web', 95, 'oro', 'https://wa.me/34971841352', 'https://www.google.com/maps?q=39.6567475,3.4375368', 39.6567475, 3.4375368),
+('bip_bip_canyamel', 'Bip Bip', 'Tienda / Comercio (supermarket)', '+34 971841027', 'No disponible', 'Canyamel', 'plaça de Nuredduna 19', '', 'pendiente', 'NO_WEBSITE', '🔴 Sin Web', 90, 'oro', 'https://wa.me/34971841027', 'https://www.google.com/maps?q=39.6580131,3.4401335', 39.6580131, 3.4401335),
+('repsol_palma', 'Repsol', 'Servicio / Hostelería (fuel)', '+34 971787901', 'No disponible', 'Palma', 'Avinguda de Gabriel Roca', '', 'pendiente', 'NO_WEBSITE', '🔴 Sin Web', 85, 'oro', 'https://wa.me/34971787901', 'https://www.google.com/maps?q=39.5645,2.6321', 39.5645, 2.6321),
+('bar_nou_andratx', 'Bar Nou', 'Servicio / Hostelería (cafe)', '+34 971233170', 'info@barnou.com', 'Andratx', 'carrer Major 7', '', 'pendiente', 'NO_WEBSITE', '🔴 Sin Web', 88, 'oro', 'https://wa.me/34971233170', 'https://www.google.com/maps?q=39.5790576,2.4697678', 39.5790576, 2.4697678),
+('autoescola_groc_santa_maria_del_camí', 'Autoescola Groc', 'Servicio / Hostelería (driving_school)', '+34 609 64 11 81', 'No disponible', 'Santa Maria del Camí', 'Avinguda de Jaume III 25', '', 'pendiente', 'NO_WEBSITE', '🔴 Sin Web', 92, 'oro', 'https://wa.me/34609641181', 'https://www.google.com/maps?q=39.6493569,2.7724182', 39.6493569, 2.7724182);

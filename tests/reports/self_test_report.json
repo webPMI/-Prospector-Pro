@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-13T20:49:01.051Z",
+  "testsPassed": 9,
+  "testsFailed": 0,
+  "totalTests": 9,
+  "benchmarks": {
+    "httpServerLatencyMs": 18,
+    "googleMapsHttpLatencyMs": 466,
+    "closedCheckLatencyMs": 718,
+    "webGeneratorLatencyMs": 1
+  },
+  "diagnostics": [
+    {
+      "status": "PASS",
+      "category": "Servidor HTTP Real",
+      "description": "Petición HTTP a /api/leads responde con 200 OK y estructura JSON correcta"
+    },
+    {
+      "status": "PASS",
+      "category": "Google Maps Live HTTP",
+      "description": "Petición HTTP en vivo a la Ficha Oficial de Google Maps responde estado 200 OK"
+    },
+    {
+      "status": "PASS",
+      "category": "Motor de Menús Digitales",
+      "description": "Detección de extensión de archivo PDF (.pdf)"
+    },
+    {
+      "status": "PASS",
+      "category": "Motor de Menús Digitales",
+      "description": "Detección de plataforma de menú QR (qr.menu)"
+    },
+    {
+      "status": "PASS",
+      "category": "Motor de Menús Digitales",
+      "description": "Detección de menú alojado en Google Drive"
+    },
+    {
+      "status": "PASS",
+      "category": "Motor de Menús Digitales",
+      "description": "Detección de palabra clave /lacarta en la ruta URL"
+    },
+    {
+      "status": "PASS",
+      "category": "Google Maps Closed Check",
+      "description": "Comprobación real contra Google Maps devuelve un objeto estructurado de estado de cierre"
+    },
+    {
+      "status": "PASS",
+      "category": "AI Web Generator",
+      "description": "Generación válida de plantilla HTML5 responsive"
+    },
+    {
+      "status": "PASS",
+      "category": "AI Web Generator",
+      "description": "Inyección correcta del Nombre Real del negocio en la plantilla"
+    }
+  ],
+  "accuracyPercentage": "100%"
+}

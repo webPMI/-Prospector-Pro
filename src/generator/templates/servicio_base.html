@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Web - {{NOMBRE}} | Servicios Profesionales</title>
+    <!-- Enlazado a styles globales (styles.css) -->
+    <link rel="stylesheet" href="/styles.css"> 
+    <style>
+        /* Estilos específicos para esta plantilla de sector */
+        :root {
+            --primary-color: #007bff; /* Azul, color corporativo/servicios */
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER (Debe seguir la regla de diseño) -->
+<header class="main-header">
+    <!-- Contenido del Navbar Global aquí -->
+</header>
+
+<div class="container">
+    <section id="hero" style="background-color: #e0f7fa; padding: 60px;">
+        <h1>🛠️ Digitalizando tus Servicios Profesionales con {{NOMBRE}}</h1>
+        <p class="subtitle">Ofreciendo soluciones digitales para tu negocio en {{MUNICIPIO}}. Confianza y modernidad.</p>
+    </section>
+
+    <section id="problem" style="padding: 40px; text-align: center;">
+        <h2>🛑 ¿Por qué necesitas una web ahora?</h2>
+        <div class="card danger">
+            <h3>{{AUDIT_LABEL}}</h3>
+            <p>{{AUDIT_DETAILS}}</p>
+             <p>Tu puntuación de Lead es: <span style="font-size: 1.5em; color: var(--primary-color);">{{SCORE}}/100</span> (Tier: {{TIER}})</p>
+        </div>
+    </section>
+
+     <section id="solution" style="padding: 40px;">
+        <h2>🔧 Nuestra Solución IA para Servicios</h2>
+        <p>Creamos webs optimizadas para mostrar tu proceso, tus equipos y los servicios que ofreces.</p>
+        <h3>Servicios destacados en la web</h3>
+        <ul>
+            <li>{{SERVICIO_1}}</li>
+            <li>{{SERVICIO_2}}</li>
+            <li>Último Servicio: {{SERVICIO_3 || 'Por definir'}}</li>
+        </ul>
+    </section>
+
+     <section id="contact" style="background-color: #eef;">
+        <h2>📞 Contacto Inmediato</h2>
+        <p class="cta-text">¡Cuéntanos tu necesidad! Podemos cotizarte un proyecto web en días.</p>
+        <div class="contact-info">
+            <p><strong>Email:</strong> {{EMAIL}}</p>
+            <p><strong>WhatsApp CTA:</strong> <a href="{{WHATSAPP_URL}}" target="_blank" style="color: var(--primary-color);">Hable por WhatsApp</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer estático -->
+    </footer>
+</div>
+</body>
+</html>

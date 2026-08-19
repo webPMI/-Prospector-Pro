@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prospector & Auditor Global de Leads Pro (Mundial)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- UNIFIED TOP NAVIGATION HEADER -->
+  <header class="main-header">
+    <a href="/home" class="brand-title">
+      <div class="brand-logo-icon"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h1>Prospector Pro</h1>
+        <div class="brand-subtitle">Buscador Global de Leads</div>
+      </div>
+    </a>
+
+    <nav class="nav-tabs">
+      <a href="/home" class="nav-tab">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+      <a href="/buscador" class="nav-tab active">
+        <i class="fa-solid fa-magnifying-glass-location"></i> Buscador de Leads
+      </a>
+      <a href="/creador" class="nav-tab">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Creador de Webs IA
+      </a>
+      <div class="nav-extras">
+        <button id="btnExportCSV" class="btn btn-success" style="font-size:0.8rem; padding:0.45rem 0.9rem;">
+          <i class="fa-solid fa-file-excel"></i> Exportar
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- FORMULARIO DE BÚSQUEDA LIBRE Y ESTRUCTURADA -->
+    <div class="live-search-card">
+      <div class="search-header-title" style="display: flex; justify-content: space-between; align-items: center;">
+        <span><i class="fa-solid fa-magnifying-glass" style="color: #67e8f9;"></i> Buscador Libre & Filtrado por País /
+          Ciudad</span>
+        <button id="btnToggleSearchFilters" class="btn btn-secondary"
+          style="font-size: 0.78rem; padding: 0.25rem 0.65rem;">
+          <i class="fa-solid fa-sliders"></i> <span id="lblToggleFilterText">⚙️ Opciones de Escaneo</span>
+        </button>
+      </div>
+
+      <!-- MAIN FREE-TEXT SEARCH INPUT -->
+      <div style="margin-top: 0.75rem; margin-bottom: 0.75rem;">
+        <label style="font-size: 0.8rem; font-weight: 700; color: #a5b4fc; display: block; margin-bottom: 0.35rem;">
+          <i class="fa-solid fa-font"></i> Búsqueda Libre por Texto / Término / Nombre de Negocio / Calle (Opcional):
+        </label>
+        <input type="text" id="liveQueryInput" class="input-field search-main-input"
+          placeholder="Ej: Pizzería Can Joan, Calle Mayor, Taller Hermanos Gómez, Restaurantes cerca del puerto..."
+          style="width: 100%; font-size: 0.95rem; padding: 0.75rem 1rem;">
+      </div>
+
+      <!-- Multi-Field Optional Worldwide Form -->
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; align-items: end;">
+
+        <div>
+          <label
+            style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">🌍
+            País (Opcional):</label>
+          <select id="liveCountrySelect" class="select-field" style="width: 100%;">
+            <option value="">🌐 Cualquier País / Global</option>
+            <option value="España">🇪🇸 España</option>
+            <option value="Estados Unidos">🇺🇸 Estados Unidos</option>
+            <option value="México">🇲🇽 México</option>
+            <option value="Argentina">🇦🇷 Argentina</option>
+            <option value="Colombia">🇨🇴 Colombia</option>
+            <option value="Reino Unido">🇬🇧 Reino Unido</option>
+            <option value="Francia">🇫🇷 Francia</option>
+            <option value="Alemania">🇩🇪 Alemania</option>
+            <option value="Italia">🇮🇹 Italia</option>
+            <option value="Chile">🇨🇱 Chile</option>
+            <option value="Perú">🇵🇪 Perú</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">🏙️
+            Ciudad / Municipio (Opcional):</label>
+          <input type="text" id="liveCityInput" class="input-field" placeholder="Opcional: Madrid, Miami..."
+            style="width: 100%;">
+        </div>
+
+        <div>
+          <label
+            style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">🗣️
+            Idioma:</label>
+          <select id="liveLanguageSelect" class="select-field" style="width: 100%;">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">🏷️
+            Sector / Categoría:</label>
+          <select id="liveCategorySelect" class="select-field" style="width: 100%;">
+            <option value="">🏷️ Cualquier Sector</option>
+            <option value="restaurantes">🍽️ Hostelería & Restaurantes</option>
+            <option value="bares">🍺 Bares, Pubs & Cafés</option>
+            <option value="talleres">🛠️ Talleres Mecánicos & Automoción</option>
+            <option value="peluquerias">✂️ Peluquerías & Estética</option>
+            <option value="panaderias">🥐 Panaderías & Pastelerías</option>
+            <option value="supermercados">🛒 Supermercados & Alimentación</option>
+            <option value="farmacias">💊 Farmacias & Salud</option>
+          </select>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem;">
+          <button id="btnExecuteLiveSearch" class="btn btn-primary"
+            style="flex: 1; padding: 0.75rem; justify-content: center; font-weight: 700;">
+            <i class="fa-solid fa-magnifying-glass-location"></i> Escanear
+          </button>
+
+          <button id="btnCancelLiveSearch" class="btn"
+            style="display: none; background: #ef4444; color: #ffffff; border: none; font-size: 0.82rem; padding: 0.75rem 0.9rem; border-radius: 8px; font-weight: 700; cursor: pointer;">
+            <i class="fa-solid fa-hand"></i> Cancelar
+          </button>
+        </div>
+
+      </div>
+
+      <!-- PANEL DE FILTROS AVANZADOS DE ESCANEO -->
+      <div id="liveSearchFiltersPanel"
+        style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.08);">
+        <div style="font-size: 0.82rem; font-weight: 700; color: #a5b4fc; margin-bottom: 0.6rem;">
+          <i class="fa-solid fa-filter"></i> Opciones Técnicas de Filtrado:
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div>
+            <label style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Objetivo
+              de Sitio Web:</label>
+            <select id="searchTargetWebSelect" class="select-field" style="width: 100%;">
+              <option value="all">🔍 Todos los estados de web</option>
+              <option value="only_no_web">🔴 Solo negocios SIN Web (+45 pts)</option>
+              <option value="only_pdf">📄 Solo negocios con Carta en PDF (+35 pts)</option>
+              <option value="only_down">⚡ Solo negocios con Web Caída (+40 pts)</option>
+            </select>
+          </div>
+
+          <div>
+            <label
+              style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Requisito de
+              Contacto:</label>
+            <select id="searchTargetContactSelect" class="select-field" style="width: 100%;">
+              <option value="all">📱 Cualquier estado de contacto</option>
+              <option value="only_phone">📞 Solo negocios con Teléfono / WhatsApp</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Nivel de
+              Prioridad (Lead Score):</label>
+            <select id="searchTargetTierSelect" class="select-field" style="width: 100%;">
+              <option value="all">🏆 Todos los Niveles (Score 0-100)</option>
+              <option value="only_oro">🥇 Solo Leads ORO (Score >= 75 pts)</option>
+              <option value="only_plata">🥈 Solo Leads PLATA (Score 55-74 pts)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- BÚSQUEDAS RECIENTES / POPULARES PERSISTENTES -->
+      <div id="recentSearchesContainer" class="quick-chips-container">
+        <span class="chips-label"><i class="fa-solid fa-clock-rotate-left" style="color: #fde047;"></i> Búsquedas
+          Recientes:</span>
+        <div id="recentChipsList" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Realiza tu primera búsqueda para guardar tu
+            historial.</span>
+        </div>
+      </div>
+
+      <!-- MINI CONSOLA TERMINAL DE ESCANEO EN VIVO -->
+      <div id="liveTerminalCard" style="display: none; margin-top: 1.25rem;">
+        <div class="terminal-bar">
+          <span style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: #38bdf8; font-weight: 600;">
+            <i class="fa-solid fa-terminal"></i> Consola de Escaneo Internacional
+          </span>
+
+          <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+            <!-- Real-Time Latency Counter -->
+            <span id="terminalTimerCounter" class="terminal-timer-chip">⏱️ 0.0s</span>
+
+            <!-- Real-Time Progress Percentage -->
+            <span id="terminalProgressPercent" class="terminal-percent-chip">📊 0%</span>
+
+            <!-- Copy Terminal Logs Button -->
+            <button id="btnCopyTerminalLogs" class="btn btn-secondary"
+              style="font-size: 0.72rem; padding: 0.25rem 0.6rem; border-radius: 6px;">
+              <i class="fa-solid fa-copy"></i> Copiar Logs
+            </button>
+
+            <!-- Terminal Cancel Scan Button -->
+            <button id="btnTerminalCancelScan" class="btn-terminal-cancel">
+              <i class="fa-solid fa-stop"></i> Cancelar
+            </button>
+
+            <span id="terminalStatusBadge"
+              style="font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #fde047;">
+              <i class="fa-solid fa-spinner fa-spin"></i> Ejecutando...
+            </span>
+          </div>
+        </div>
+
+        <!-- PROGRESS BAR TRACK -->
+        <div class="progress-track">
+          <div id="terminalProgressBar" class="progress-bar-fill"></div>
+        </div>
+
+        <div id="liveTerminalLogs" class="terminal-logs">
+          <!-- Live stream logs appear here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Counter Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon icon-oro"><i class="fa-solid fa-trophy"></i></div>
+        <div>
+          <div id="statOro" class="stat-val">0</div>
+          <div class="stat-lbl">Leads ORO (Prioridad Máxima)</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon icon-plata"><i class="fa-solid fa-medal"></i></div>
+        <div>
+          <div id="statPlata" class="stat-val">0</div>
+          <div class="stat-lbl">Leads PLATA (Potencial Alto)</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon icon-noweb"><i class="fa-solid fa-ban"></i></div>
+        <div>
+          <div id="statNoWeb" class="stat-val">0</div>
+          <div class="stat-lbl">Sin Web Registrada</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon icon-wa"><i class="fa-brands fa-whatsapp"></i></div>
+        <div>
+          <div id="statWA" class="stat-val">0</div>
+          <div class="stat-lbl">Con WhatsApp Directo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters & Search Controls -->
+    <div class="controls-panel">
+      <div class="search-row">
+        <input type="text" id="searchInput" class="input-field"
+          placeholder="🔍 Filtrar resultados por nombre, municipio, teléfono...">
+
+        <select id="scoreFilter" class="select-field">
+          <option value="">🏆 Todos los Niveles (Score)</option>
+          <option value="oro">🥇 Leads ORO (Score 75-100)</option>
+          <option value="plata">🥈 Leads PLATA (Score 55-74)</option>
+          <option value="bronce">🥉 Leads BRONCE (Score 0-54)</option>
+        </select>
+
+        <select id="auditFilter" class="select-field">
+          <option value="">🔍 Todos los Diagnósticos</option>
+          <option value="NO_WEBSITE">🔴 Sin Web</option>
+          <option value="PDF_MENU">📄 Carta en PDF (No Móvil)</option>
+          <option value="WEBSITE_DOWN">⚡ Web Caída / Rota</option>
+          <option value="NO_SSL">🔒 No Segura (Sin SSL)</option>
+        </select>
+
+        <select id="cityFilter" class="select-field">
+          <option value="">🏙️ Todos los Municipios / Ciudades</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-card">
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Calificación (Score)</th>
+              <th>Negocio</th>
+              <th>Diagnóstico Audit</th>
+              <th>Ubicación</th>
+              <th>Contacto</th>
+              <th>Verificación & Demos</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL DE VERIFICACIÓN Y ANÁLSIIS PROFUNDO GOOGLE MAPS -->
+  <div id="verifyModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div id="modalBizName" class="modal-title">Nombre del Negocio</div>
+        <button id="btnCloseModal" class="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="modalBizMeta" style="margin-bottom: 1.25rem; color: var(--text-muted); font-size: 0.9rem;">Categoría -
+          Municipio</div>
+
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <span id="modalScoreBadge" class="lead-badge badge-oro">🥇 Lead ORO</span>
+          <span id="modalAuditBadge" class="audit-badge audit-noweb">🔴 Sin Web</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+
+          <div class="verify-action-box">
+            <div class="action-box-title"><i class="fa-map-location-dot" style="color: #ef4444;"></i> Google Maps &
+              Ubicación Física</div>
+            <div id="modalAddressText" style="font-size: 0.88rem; color: #cbd5e1; margin: 0.4rem 0 0.8rem 0;">Dirección
+              no indicada</div>
+            <a id="btnLinkGoogleMaps" href="#" target="_blank" class="btn btn-secondary" style="font-size: 0.82rem;">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Ficha Oficial en Google Maps
+            </a>
+          </div>
+
+          <div class="verify-action-box">
+            <div class="action-box-title"><i class="fa-globe" style="color: #38bdf8;"></i> Estado del Sitio Web / Carta
+            </div>
+            <div id="modalWebUrlText"
+              style="font-size: 0.88rem; color: #cbd5e1; margin: 0.4rem 0 0.8rem 0; word-break: break-all;">Sin sitio
+              web registrado</div>
+            <a id="btnLinkWebsite" href="#" target="_blank" class="btn btn-secondary"
+              style="font-size: 0.82rem; display: none;">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir Web / Menú del Negocio
+            </a>
+          </div>
+
+          <div class="verify-action-box"
+            style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.05);">
+            <div class="action-box-title" style="color: #fde047;">
+              <i class="fa-solid fa-star"></i> Análisis Profundo de Ficha de Google Maps
+            </div>
+
+            <div id="deepInspectionContent" style="margin-top: 0.75rem;">
+              <button id="btnTriggerDeepInspect" class="btn btn-primary"
+                style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border: none; font-size: 0.85rem; width: 100%;">
+                <i class="fa-solid fa-layer-group"></i> Cargar Análisis Profundo (Competidores, Estrellas, Fotos)
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE VISTA PREVIA DE DEMO WEB IA GENERADA -->
+  <div id="demoModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 600px;">
+      <div class="modal-header">
+        <div id="demoModalTitle" class="modal-title" style="color: #c084fc;">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Demo Web IA Generada
+        </div>
+        <button id="btnCloseDemoModal" class="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="modal-body" style="text-align: center;">
+        <p id="demoModalBizName" style="font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+        </p>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Se ha generado la demo web oficial adaptada 100% a móviles con datos reales de la ficha de Google Maps.
+        </p>
+
+        <div
+          style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(168, 85, 247, 0.3); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem;">
+          <div style="font-size: 0.78rem; font-weight: 700; color: #a5b4fc; margin-bottom: 0.4rem;">🔗 Enlace Público de
+            Visualización:</div>
+          <div id="demoUrlText"
+            style="font-family: 'Fira Code', monospace; font-size: 0.9rem; color: #38bdf8; word-break: break-all;">
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center;">
+          <a id="btnOpenDemoLive" href="#" target="_blank" class="btn btn-primary"
+            style="background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);">
+            <i class="fa-solid fa-up-right-from-square"></i> Ver Demo en Vivo
+          </a>
+
+          <a id="btnSendDemoWA" href="#" target="_blank" class="btn btn-success" style="background: #25d366;">
+            <i class="fa-brands fa-whatsapp"></i> Enviar Demo por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Frontend Logic -->
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -180,7 +180,7 @@ function parseRequestBody(req) {
 }
 
 function sendJson(res, statusCode, data) {
-  applySecurityHeaders(res);
+  applySecurityHeaders(res, false); // No CSP for JSON responses
   res.writeHead(statusCode, { 'Content-Type': 'application/json; charset=UTF-8' });
   res.end(JSON.stringify(data));
 }
@@ -289,8 +289,8 @@ const server = http.createServer(async (req, res) => {
   const pathname = parsedUrl.pathname;
   const clientIP = getClientIP(req);
 
-  // Apply security headers to all responses
-  applySecurityHeaders(res);
+  // Apply security headers to all responses (CSP will be added for HTML responses)
+  applySecurityHeaders(res, pathname.endsWith('.html') || pathname.startsWith('/demo/'));
 
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -624,6 +624,7 @@ const server = http.createServer(async (req, res) => {
 
   try {
     const content = fs.readFileSync(filePath);
+    applySecurityHeaders(res, ext === '.html'); // Apply CSP only for HTML files
     res.writeHead(200, { 'Content-Type': mime });
     res.end(content);
   } catch (err) {

@@ -384,6 +384,8 @@ if (req.method === 'POST' && pathname === '/api/nueva-ruta') {
 | 6 | **E.164 WhatsApp** | Siempre usar `buildInternationalWhatsAppUrl()` para teléfonos. |
 | 7 | **Sin hardcoding** | Cero arrays con nombres específicos de negocios de prueba en el código. |
 | 8 | **Testing real** | `selfTestEngine.js` hace peticiones HTTP reales. Sin mocks sintéticos. |
+| 9 | **Seguridad primero** | Validar y sanitizar TODAS las entradas. Usar funciones de seguridad implementadas. |
+| 10 | **Headers de seguridad** | Aplicar headers de seguridad en todas las respuestas HTTP. |
 
 ---
 
